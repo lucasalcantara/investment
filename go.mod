@@ -1,4 +1,4 @@
-module investment
+module github.com/lucasalcantara/investment
 
 go 1.13
 
