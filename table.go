@@ -11,7 +11,7 @@ func buildRatioTable(ratios []Ratio) string {
 	table.WriteString(`
 	<table border=1>	
 		<tr>
-			<td></td>
+			<td>Fundamental</td>
 `)
 
 	for _, r := range ratios {
@@ -50,7 +50,9 @@ func buildRatioTable(ratios []Ratio) string {
 		}
 		table.WriteString("</tr>")
 
-		table.WriteString("<tr></tr>")
+		if j ==  t.Field(i).Type.NumField()-1 {
+			table.WriteString("<tr></tr>")
+		}
 	})
 
 	table.WriteString("</table>")
