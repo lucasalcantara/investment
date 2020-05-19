@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"io/ioutil"
 	"log"
 	"net/http"
 	"os"
@@ -11,7 +10,7 @@ import (
 )
 
 func main() {
-	tickers := []string{}
+	tickers := os.Args[1:]
 	ratios := FetchRatios(tickers...)
 	for _, r := range ratios {
 		fmt.Println(r.Ticker,
@@ -30,19 +29,4 @@ func main() {
 	})
 
 	log.Fatal(http.ListenAndServe(":8080", nil))
-
-
-	response, err := http.Get("https://finbox.com/NYSE:FL/explorer/interest_coverage")
-	if err != nil {
-		fmt.Printf("%s", err)
-		os.Exit(1)
-	} else {
-		defer response.Body.Close()
-		contents, err := ioutil.ReadAll(response.Body)
-		if err != nil {
-			fmt.Printf("%s", err)
-			os.Exit(1)
-		}
-		fmt.Printf("%s\n", string(contents))
-	}
 }

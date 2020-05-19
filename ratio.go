@@ -21,30 +21,38 @@ type Ratio struct {
 	Profitability Profitability
 	Liquidity     Liquidity
 	Debt          Debt
+	Efficiency    Efficiency
 }
 
 type Valuation struct {
-	PE  float64 // Price to Earning (P/E)
-	PEG float64
-	PS  float64 // Price To Sales (P/S)
-	PB  float64 // Price to Book (P/B)
-	DY  float64 // Dividend Yield
+	PE  float64 `title:"Price to Earning (P/E)"`
+	PEG float64 `title:"Price/Earnings-to-Growth (PEG)"`
+	PS  float64 `title:"Price To Sales (P/S)"`
+	PB  float64 `title:"Price to Book (P/B)"`
+	DY  float64 `title:"Dividend Yield"`
+	DP  float64 `title:"Dividend Payout"`
 }
 
 type Profitability struct {
-	ROA float64 // Return on assets (ROA)
-	ROE float64 // Return on Equity (ROE)
-	ROI float64 // Return on Investment (ROI)
-	PM  float64 // Profit Margin
+	ROA float64 `title:"Return on assets (ROA)"`
+	ROE float64 `title:"Return on Equity (ROE)"`
+	ROI float64 `title:"Return on Investment (ROI)"`
+	PM  float64 `title:"Profit Margin"`
 }
 
 type Liquidity struct {
-	CR float64 // Currently ratio
-	QR float64 // Quick ratio
+	CR float64 `title:"Currently ratio"`
+	QR float64 `title:"Quick ratio"`
 }
 
 type Debt struct {
-	DE float64 // Debit to Equity
+	DE float64 `title:"Debit to Equity"`
+	IC float64 `title:"Interest Coverage"`
+}
+
+type Efficiency struct {
+	AT float64 `title:"Assert turnover"`
+	IT float64 `title:"Inventory turnover"`
 }
 
 type finvizValuationRatio struct {
